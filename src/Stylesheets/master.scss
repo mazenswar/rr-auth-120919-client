@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Sen&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Sen', sans-serif;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+a {
+  text-decoration: none;
+  color: #eee;
+}
+
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #262626;
+  width: 100%;
+  padding: 3vh 0;
+}
+
+.form-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 30%;
+    width: 100%;
+    input {
+      width: 40%;
+      padding: 10px;
+    }
+    input[type='submit'] {
+      width: 20%;
+    }
+  }
+  button {
+    width: 30%;
+  }
+}
+
+.dog-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.dog-card {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 25vw;
+  width: 15vw;
+  background-color: #262626;
+  color: #eee;
+  img {
+    width: 90%;
+  }
+}

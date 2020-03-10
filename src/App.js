@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Routes from './Pages';
+import Nav from './Components/Nav';
+import { connect, useSelector, useDispatch } from 'react-redux';
 
-function App() {
+// class App extends React.Component {
+//   render() {
+//     console.log(this.props);
+//     return (
+//       <Router>
+//         <Nav />
+//         <Routes />
+//       </Router>
+//     );
+//   }
+// }
+
+// const mapStateToProps = state => state;
+
+// export default connect(mapStateToProps)(App);
+
+export default function App() {
+  const dogs = useSelector(state => state.dogs);
+  const dispatch = useDispatch();
+  console.log('doggos from the store =========> ', dogs);
+  useEffect(() => {
+    fetch('http://localhost:3000/dogs')
+      .then(r => r.json())
+      .then(dogs => {
+        const action = {
+          type: 'SET_DOGS',
+          payload: dogs
+        };
+        dispatch(action);
+      });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Nav />
+      <Routes />
+    </Router>
   );
 }
-
-export default App;
